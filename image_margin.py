@@ -26,3 +26,16 @@ def setMargin(img, margin_top_mm=0, margin_right_mm=0):
 #img = Image.open("env9.jpg")
 img = setMargin(img, margin_top_mm=0, margin_right_mm=10)
 #img.save("barcode_new.jpg")
+
+
+
+
+
+
+
+from scipy.ndimage import shift
+from PIL import Image
+
+img_shifted = shift(img, (10, 0, 0), mode='constant' , cval=255)
+img = Image.fromarray(img_shifted)
+img.save("barcode_new.jpg")
